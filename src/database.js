@@ -7,4 +7,4 @@ async function startDB() {
     console.log('DB connected');
 };
 
-export default startDB;
+module.exports = startDB;

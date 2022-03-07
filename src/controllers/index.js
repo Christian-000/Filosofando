@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Quote = require("../models/Quote");
 
 const getAllQuotes = (req, res) => {
-  User.find((err, quotes) => {
+  Quote.find((err, quotes) => {
     err && res.status(500).send(err.message);
 
     res.status(200).json(quotes);
@@ -22,5 +22,15 @@ const addQuote = (req, res) => {
   });
 };
 
+const deleteQuote = (req, res) => {
+    let id = req.params.id;
+    Quote.findByIdAndDelete(id, (err, qt) => {
+        err && res.status(500).send(err.message);
+        
+        return res.json(qt)
+    })
 
-module.exports = {getAllQuotes, addQuote};
+    return res.send("failed")
+}
+
+module.exports = {getAllQuotes, addQuote, deleteQuote};

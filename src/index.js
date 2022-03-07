@@ -1,5 +1,6 @@
-import app from "./app";
-import startDB from "./database";
+const app = require('./app');
+const startDB = require('./database');
+
 
 app.listen(app.get('port'));
 console.log('Server ON')
