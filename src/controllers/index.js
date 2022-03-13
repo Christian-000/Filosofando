@@ -23,14 +23,12 @@ const addQuote = (req, res) => {
 };
 
 const deleteQuote = (req, res) => {
-    let id = req.params.id;
-    Quote.findByIdAndDelete(id, (err, qt) => {
-        err && res.status(500).send(err.message);
-        
-        return res.json(qt)
-    })
+  let id = req.params.id;
+  Quote.findByIdAndDelete(id, (err, qt) => {
+    err && res.status(500).send(err.message);
 
-    return res.send("failed")
-}
+    return res.json(qt);
+  });
+};
 
-module.exports = {getAllQuotes, addQuote, deleteQuote};
+module.exports = { getAllQuotes, addQuote, deleteQuote };
