@@ -1,11 +1,21 @@
 const mongoose = require("mongoose");
 const Quote = require("../models/Quote");
+const auth = require("basic-auth");
 
 const getAllQuotes = (req, res) => {
   Quote.find((err, quotes) => {
     err && res.status(500).send(err.message);
 
     res.status(200).json(quotes);
+  });
+};
+
+const getQuotesByAuthor = (req, res) => {
+  let author = req.params.author;
+  Quote.find({ author: author }, (err, qts) => {
+    err && res.status(500).send(err.message);
+
+    return res.json(qts);
   });
 };
 
@@ -31,4 +41,22 @@ const deleteQuote = (req, res) => {
   });
 };
 
-module.exports = { getAllQuotes, addQuote, deleteQuote };
+const adminAuth = async (req, res, next) => {
+  const admin = await auth(req);
+  const username = "admin";
+  const password = "1234";
+
+  if (admin && admin.name === username && admin.pass === password) {
+    next();
+  } else {
+    return res.status(401).send("Access denied");
+  }
+};
+
+module.exports = {
+  getAllQuotes,
+  addQuote,
+  deleteQuote,
+  getQuotesByAuthor,
+  adminAuth,
+};

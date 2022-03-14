@@ -3,10 +3,12 @@ const express = require('express');
 
 const router = express.Router();
 
-router.get('/all', quoteControllers.getAllQuotes);
+router.get('/get/all', quoteControllers.getAllQuotes);
+router.get('/get/:author', quoteControllers.getQuotesByAuthor);
 
-router.post('/add', quoteControllers.addQuote);
+//PRIVATE ENDPOINTS
+router.post('/add', quoteControllers.adminAuth, quoteControllers.addQuote);
 
-router.delete('/del/:id', quoteControllers.deleteQuote);
+router.delete('/del/:id', quoteControllers.adminAuth, quoteControllers.deleteQuote);
 
 module.exports = router;
