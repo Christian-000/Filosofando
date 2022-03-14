@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Quote = require("../models/Quote");
 const auth = require("basic-auth");
+require('dotenv').config();
 
 const getAllQuotes = (req, res) => {
   Quote.find((err, quotes) => {
@@ -43,9 +44,8 @@ const deleteQuote = (req, res) => {
 
 const adminAuth = async (req, res, next) => {
   const admin = await auth(req);
-  const username = "admin";
-  const password = "1234";
-
+  const username = process.env.AUTH_USERNAME;
+  const password = process.env.AUTH_PASSWORD;
   if (admin && admin.name === username && admin.pass === password) {
     next();
   } else {
