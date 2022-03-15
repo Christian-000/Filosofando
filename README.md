@@ -7,7 +7,7 @@
 ####GET
 
 
-    - https://filosofando-api.herokuapp.com/api/get/all
+    	https://filosofando-api.herokuapp.com/api/get/all
 Para obtener todas las citas en un array.
 
 	https://filosofando-api.herokuapp.com/api/get/:author
