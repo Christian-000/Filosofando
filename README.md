@@ -1,4 +1,4 @@
-### API CON CITAS FILOSOFICAS FAMOSAS :fa-university:
+### API CON CITAS FILOSOFICAS FAMOSAS 
 
 ###Endpoints
 
