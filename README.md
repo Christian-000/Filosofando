@@ -28,8 +28,8 @@ Para acceder a estos endpoints necesitas  el permiso del administrador (yo).
 	https://filosofando-api.herokuapp.com/api/add
 Añade una nueva cita.
 Deberás pasarle por body un json con el siguiente formato  `{
-	quote: "cita",
-	author: "nombre_del_autor"
+	"quote": "cita",
+	"author": "nombre_del_autor"
 }`
 
 ####DELETE
