@@ -1,10 +1,10 @@
 ### API CON CITAS FILOSOFICAS FAMOSAS 
 
-###Endpoints
+### Endpoints
 
 
 
-####GET
+#### GET
 
 
     https://filosofando-api.herokuapp.com/api/get/all
@@ -21,10 +21,10 @@ Devuelve un array con algunas de sus citas más famosas en el siguiente formato.
 }`
 
 
-###Private Endpoints
+### Private Endpoints
 Para acceder a estos endpoints necesitas  el permiso del administrador (yo).
 
-####POST
+#### POST
 	https://filosofando-api.herokuapp.com/api/add
 Añade una nueva cita.
 Deberás pasarle por body un json con el siguiente formato  `{
@@ -32,7 +32,7 @@ Deberás pasarle por body un json con el siguiente formato  `{
 	"author": "nombre_del_autor"
 }`
 
-####DELETE
+#### DELETE
 	https://filosofando-api.herokuapp.com/api/del/:id
 Elimina una cita de la base de datos.
 
